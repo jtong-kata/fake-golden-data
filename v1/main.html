@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script src="lib/lodash/lodash.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <title>Date</title>
+</head>
+
+<body id="body">
+<div class="text-center">
+
+    <div id="container"></div>
+    <div id="popUp" title="choose format"></div>
+
+</div>
+
+<script id="formDefinition" type="text/html">
+    <% if(status==="edit") {%>
+        <button class="btn btn-default btn-sm" onclick="reRender('preview')">
+            preview
+        </button>
+    <%} else {%>
+        <button class="btn btn-default btn-sm" onclick="reRender('edit')">
+            edit
+        </button>
+    <%}%>
+    <div>
+        <ul>
+        <% items.forEach(function(item,index) { %>
+           <li>
+                <% if(item.type==="text") {%>
+                    <input type="text">
+                <%} else {%>
+                    <input type="date">
+                <%}%>
+                <% if(status==="edit") {%>
+                    <button class="btn btn-default btn-sm" onclick="removeItem(<%-index%>)">
+                        -
+                    </button>
+                <%}%>
+           </li>
+        <% }) %>
+        </ul>
+        <% if(status==="edit") {%>
+            <button class="btn btn-default btn-sm" onclick="choose()">
+                +
+            </button>
+        <%}%>
+    </div>
+    
+</script>
+
+<script id="chooseDialog" type="text/html">
+        <input type="radio" name="dialogType" checked value="date">date<br>
+        <input type="radio" name="dialogType" value="text">text<br>
+        <button type="submit" onclick="addItem(this)">submit</button>
+</script>
+</body>
+</html>
+
