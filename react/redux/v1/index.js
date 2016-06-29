@@ -7,6 +7,7 @@ import store from './store';
 const rootEl = document.getElementById('root')
 
 console.log(store.getState().formState.status);
+
 function render() {
   ReactDOM.render(
       <MyContainer

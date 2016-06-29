@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import * as containerAPI from "../handler/container-api"
 import FormEditor from "../components/FormEditor.js"
 import FormPreviewer from "../components/FormPreviewer.js"
+import { connect } from 'react-redux'
 
 class MyContainer extends Component{
     constructor(props){
@@ -47,4 +48,17 @@ class MyContainer extends Component{
 
 }
 
-export default MyContainer
+MyContainer.propTypes = {
+    items: PropTypes.array.isRequired,
+    status: PropTypes.string.isRequired
+}
+
+
+function mapStateToProps(state, ownProps) {
+    return {
+        items: state.itemsState.items,
+        status: state.formState.status
+    }
+}
+export default connect(mapStateToProps, {
+})(MyContainer)
