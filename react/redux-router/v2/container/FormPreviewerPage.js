@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import FormPreviewer from "../components/FormPreviewer.js"
 import { connect } from 'react-redux'
 
-class FormEditorPage extends Component{
+class FormPreviewerPage extends Component{
     constructor(props){
         super(props);
 
@@ -18,7 +18,7 @@ class FormEditorPage extends Component{
 
 }
 
-FormPreviewer.propTypes = {
+FormPreviewerPage.propTypes = {
     items: PropTypes.array.isRequired,
 }
 
@@ -29,4 +29,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 export default connect(mapStateToProps, {
-})(FormPreviewer)
+})(FormPreviewerPage)
