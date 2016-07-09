@@ -26,7 +26,7 @@ class MyContainer extends Component{
 
         return (<div>
             {(() => {
-                if (self.props.param.status === "edit") {
+                if (self.props.status === "edit") {
                     return <button class="btn btn-default btn-sm" onClick={e=>self.renderPreview(e)}>
                         preview
                     </button>
